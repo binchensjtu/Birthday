@@ -185,12 +185,14 @@ if (!document.createElement('canvas').getContext) {
         var map = new BMap.Map("code");
         var jiashanPoint = new BMap.Point(120.940155, 30.848783);
         var shanghaiPoint = new BMap.Point(121.507102, 31.288675);
+        var beijingPoint = new BMap.Point(116.358301,40.011862);
         var jiashanContent =
             "<img style='float:right;margin:2px' id='imgDemo' src='images/tiananmen.jpg' width='139' height='104' title='天安门'/>" +
             "<p style='margin:0;line-height:1.5;font-size:11px;text-indent:2em'>天安门坐落在中国北京市中心,故宫的南侧,与天安门广场隔长安街相望,是清朝皇城的大门...</p>" +
             "</div>";
         var jiashanMarker = new BMap.Marker(jiashanPoint);
         var shanghaiMarker = new BMap.Marker(shanghaiPoint);
+        var beijingMarker = new BMap.Marker(beijingPoint);
         var jiashaninfoWindow = new BMap.InfoWindow(jiashanContent); // 创建信息窗口对象
 
         var polylineArt = {
@@ -214,10 +216,11 @@ if (!document.createElement('canvas').getContext) {
             var y1 = start.lat;
             var x2;
             var y2;
+            var diff = xdiff > 0?stepLen * (ydiff / xdiff):0;
             var a2bid = setInterval(function() {
                 x2 = x1 + stepLen;
                 y2 = y1 + stepLen * (ydiff / xdiff);
-                if (x1 < (end.lng - stepLen)) {
+                if (Math.abs(y1) < Math.abs(end.lat - diff)) {
                     var mypolyline = new BMap.Polyline([new BMap.Point(x1, y1), new BMap.Point(x2, y2)], polylineArt);
                     map.addOverlay(mypolyline);
                     x1 = x2;
@@ -226,7 +229,6 @@ if (!document.createElement('canvas').getContext) {
                     clearInterval(a2bid);
                     done(end);
                 }
-
             }, intervalTime);
         }
 
@@ -248,16 +250,16 @@ if (!document.createElement('canvas').getContext) {
             
         }
 
-        function jiashan2shanghai() {
+        function jiashan2shanghai(callback) {
             setTimeout(function() {
                 jiashanMarker.closeInfoWindow(jiashaninfoWindow);
                 map.centerAndZoom(shanghaiPoint, 9);
                 var place = {
                     start: jiashanPoint,
                     end: shanghaiPoint,
-                    step: 10,
-                    interval: 500
-                }
+                    step: 30,
+                    interval: 300
+                };
                 a2b(place, function(point) {
                     shanghaiPoint = point;
                     map.centerAndZoom(shanghaiPoint, 16);
@@ -266,7 +268,7 @@ if (!document.createElement('canvas').getContext) {
                     document.getElementById('imgDemo').onload = function() {
                         jiashaninfoWindow.redraw(); //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
                     }
-                    popILoveU();
+                    callback();
                 });
             }, 1000);
         }
@@ -279,6 +281,30 @@ if (!document.createElement('canvas').getContext) {
             }
         }
 
+        function shanghai2beijing(callback){
+            setTimeout(function(){
+                shanghaiMarker.closeInfoWindow(jiashaninfoWindow);
+                var centerPoint = new BMap.Point((beijingPoint.lng+shanghaiPoint.lng)/2,(beijingPoint.lat+shanghaiPoint.lat)/2 );
+                map.centerAndZoom(centerPoint, 6);
+                var place = {
+                    start: shanghaiPoint,
+                    end: beijingPoint,
+                    step: 10,
+                    interval: 500
+                };
+                a2b(place, function(point) {
+                    beijingPoint = point;
+                    map.centerAndZoom(beijingPoint, 18);
+                    map.addOverlay(beijingMarker);
+                    beijingMarker.openInfoWindow(jiashaninfoWindow);
+                    document.getElementById('imgDemo').onload = function() {
+                        jiashaninfoWindow.redraw();
+                    }
+                    // popILoveU();
+                });
+            },2000);
+        }
+
         var zoomJiashanLevel = 3;
         var intervalId = setInterval(function() {
             map.centerAndZoom(jiashanPoint, zoomJiashanLevel++);
@@ -286,7 +312,7 @@ if (!document.createElement('canvas').getContext) {
                 jiashanAction();
             };
             if (zoomJiashanLevel == 20) {
-                jiashan2shanghai();
+                jiashan2shanghai(shanghai2beijing);
                 clearInterval(intervalId);
             };
         }, 500);

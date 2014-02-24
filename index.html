@@ -1,79 +1,297 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<title>Our Love Story</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<style type="text/css">
+		@font-face {
+		font-family: digit;
+		src: url('digital-7_mono.ttf') format("truetype");
+		}
+		</style>
+		<link href="css/default_dev.css" type="text/css" rel="stylesheet">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/garden_dev.js"></script>
+		<script type="text/javascript" src="js/functions_dev.js"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?type=quick&ak=553a525539a6246e143df2177507433c&v=1.0"></script>
+		<script type="text/javascript" src="js/detectmobilebrowser.js"></script>
+	</head>
+	<body>
+		<audio autoplay="autoplay" loop="loop" id="music">
+		<source src="music/dadada.ogg" type="audio/ogg" />
+		<source src="music/dadada.mp3" type="audio/mpeg" />
+		</audio>
+		<div id="mainDiv">
+			<div id="content">
+				<div id="code">
+					<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments">* We are both Fudan SSers and programmers,</span><br />
+				<span class="space"/><span class="comments">* so I write some code to celebrate our 1st anniversary.</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				Boy i = <span class="keyword">new</span> Boy(<span class="string">"hackerzhou"</span>);<br />
+				Girl u = <span class="keyword">new</span> Girl(<span class="string">"MaryNee"</span>);<br />
+				<span class="comments">// Nov 2, 2010, I told you I love you. </span><br />
+				i.love(u);<br />
+				<span class="comments">// Luckily, you accepted and became my girlfriend eversince.</span><br />
+				u.accepted();<br />
+				<span class="comments">// Since then, I miss u every day.</span><br />
+				i.miss(u);<br />
+				<span class="comments">// And take care of u and our love.</span><br />
+				i.takeCareOf(u);<br />
+				<span class="comments">// You say that you won't be so easy to marry me.</span><br />
+				<span class="comments">// So I keep waiting and I have confidence that you will.</span><br />
+				<span class="keyword">boolean</span> isHesitate = <span class="keyword">true</span>;<br />
+				<span class="keyword">while</span> (isHesitate) {<br />
+				<span class="placeholder"/>i.waitFor(u);<br />
+				<span class="placeholder"/><span class="comments">// I think it is an important decision</span><br />
+				<span class="placeholder"/><span class="comments">// and you should think it over.</span><br />
+				<span class="placeholder"/>isHesitate = u.thinkOver();<br />
+				}<br />
+				<span class="comments">// After a romantic wedding, we will live happily ever after.</span><br />
+				i.marry(u);<br />
+				i.liveHappilyWith(u);<br />
+				</div>
+				<div id="loveHeart">
+					<canvas id="garden"></canvas>
+					<div id="words">
+						<div id="messages">
+							We have fallen in love for
+							<div id="elapseClock"></div>
+						</div>
+						<div id="loveu">
+							Love u forever and ever.<br/>
+							<div class="signature">- benny</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="copyright">
+				Inspired by <a href="http://love.hackerzhou.me">FlowerPower</a> project.<br />
+				Copyright © 2014 Benny 2009-2014
+			</div>
+		</div>
+		<script type="text/javascript">
+var offsetX = $("#loveHeart").width() / 2;
+var offsetY = $("#loveHeart").height() / 2 - 55;
+var displayMode = 1;
+var together = new Date();
+together.setUTCFullYear(2013, 9, 19);
+together.setUTCHours(16);
+together.setUTCMinutes(0);
+together.setUTCSeconds(0);
+together.setUTCMilliseconds(0);
+$("#loveHeart").click(function() {
+    displayMode *= -1;
+    timeElapse(together, displayMode);
+});
+if (!document.createElement('canvas').getContext) {
+    var msg = document.createElement("div");
+    msg.id = "errorMsg";
+    msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+    document.body.appendChild(msg);
+    $("#code").css("display", "none")
+    $("#copyright").css("position", "absolute");
+    $("#copyright").css("bottom", "10px");
+    document.execCommand("stop");
+} else {
+    setTimeout(function() {
+        adjustWordsPosition();
+        startHeartAnimation();
+    }, 5000);
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Birthday : Birthday gift to girl friend" />
+    timeElapse(together, displayMode);
+    setInterval(function() {
+        timeElapse(together, displayMode);
+    }, 500);
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    adjustCodePosition();
 
-    <title>Birthday</title>
-  </head>
+    if (jQuery.browser.mobile) {
+        console.log("is mobile");
+        $("#code").typewriter();
+    } else {
+        console.log("is not mobile");
+        var i_love_you_s = [{
+            point: "-0.316806,51.562841",
+            text: "I Love you"
+        }, {
+            point: "13.223604,52.560708",
+            text: "Ich liebe Dich"
+        }, {
+            point: "20.87688,52.290783",
+            text: "Kocham Cię"
+        }, {
+            point: "2.332405,48.920833",
+            text: "Je t’aime"
+        }, {
+            point: "-9.221098,38.845",
+            text: "Eu te amo"
+        }, {
+            point: "12.414123,41.883913",
+            text: "Ti amo"
+        }, {
+            point: "23.526091,38.209098",
+            text: "Σ 'αγαπώ"
+        }, {
+            point: "37.655215,55.713328",
+            text: "Я люблю тебя"
+        }, {
+            point: "139.797007,35.729394",
+            text: "私はあなたを愛して"
+        }, {
+            point: "126.918899,37.567543",
+            text: "난 널 사랑해"
+        }, {
+            point: "91.059137,29.717551",
+            text: "那丘拉嘎"
+        }, {
+            point: "111.700904,40.873903",
+            text: "比恰嘛泰日贴"
+        }, {
+            point: "108.315801,22.891595",
+            text: "顾哀蒙"
+        }, {
+            point: "120.393627,36.082817",
+            text: "俺挺希罕嫩滴"
+        }, {
+            point: "120.157815,30.285259",
+            text: "我毛喜欢你的来"
+        }, {
+            point: "121.560609,29.881251",
+            text: "阿拉呆个欢喜侬"
+        }, {
+            point: "121.491696,31.229633",
+            text: "阿拉老欢喜侬"
+        }, {
+            point: "114.427134,38.005578",
+            text: "俺待见你"
+        }, {
+            point: "108.981534,34.245616",
+            text: "饿爱你"
+        }, {
+            point: "120.58103,31.292851",
+            text: "唔欢喜内"
+        }, {
+            point: "125.336731,43.832739",
+            text: "俺贼稀罕你"
+        }, {
+            point: "113.249707,23.15365",
+            text: "我好钟意你"
+        }, {
+            point: "116.414042,39.908737",
+            text: "我爱你"
+        }]
+        // 百度地图API功能
+        var map = new BMap.Map("code");
+        var jiashanPoint = new BMap.Point(120.940155, 30.848783);
+        var shanghaiPoint = new BMap.Point(121.507102, 31.288675);
+        var jiashanContent =
+            "<img style='float:right;margin:2px' id='imgDemo' src='images/tiananmen.jpg' width='139' height='104' title='天安门'/>" +
+            "<p style='margin:0;line-height:1.5;font-size:11px;text-indent:2em'>天安门坐落在中国北京市中心,故宫的南侧,与天安门广场隔长安街相望,是清朝皇城的大门...</p>" +
+            "</div>";
+        var jiashanMarker = new BMap.Marker(jiashanPoint);
+        var shanghaiMarker = new BMap.Marker(shanghaiPoint);
+        var jiashaninfoWindow = new BMap.InfoWindow(jiashanContent); // 创建信息窗口对象
 
-  <body>
+        var polylineArt = {
+            strokeColor: "blue",
+            strokeWeight: 3,
+            strokeOpacity: 0.5
+        };
+        map.centerAndZoom("北京", 2); //初始化时，即可设置中心点和地图缩放级别。
+        map.addControl(new BMap.ZoomControl()); //添加地图缩放控件
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/binchen911/Birthday">View on GitHub</a>
+        function a2b(place, done) {
+            var intervalTime = place.interval || 500;
+            var start = place.start;
+            var end = place.end;
+            var step = place.step;
 
-          <h1 id="project_title">Birthday</h1>
-          <h2 id="project_tagline">Birthday gift to girl friend</h2>
+            var xdiff = end.lng - start.lng;
+            var ydiff = end.lat - start.lat;
+            var stepLen = xdiff / step;
+            var x1 = start.lng;
+            var y1 = start.lat;
+            var x2;
+            var y2;
+            var a2bid = setInterval(function() {
+                x2 = x1 + stepLen;
+                y2 = y1 + stepLen * (ydiff / xdiff);
+                if (x1 < (end.lng - stepLen)) {
+                    var mypolyline = new BMap.Polyline([new BMap.Point(x1, y1), new BMap.Point(x2, y2)], polylineArt);
+                    map.addOverlay(mypolyline);
+                    x1 = x2;
+                    y1 = y2;
+                } else {
+                    clearInterval(a2bid);
+                    done(end);
+                }
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/binchen911/Birthday/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/binchen911/Birthday/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
+            }, intervalTime);
+        }
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        function popILoveU() {
+            var i = 0;
+            var intervalId = setInterval(function(){
+                if(i==i_love_you_s.length){
+                    clearInterval(intervalId);
+                }else{
+                    var i_love_you = i_love_you_s[i++];
+                var point = i_love_you.point.split(",");
+                var infoWindow = new BMap.InfoWindow("<b>" + i_love_you.text + "</b>"); // 创建信息窗口对象
+                var location = new BMap.Point(point[0], point[1]);
+                map.centerAndZoom(location, 5);
+                map.openInfoWindow(infoWindow, location); //开启信息窗口
+                }
+                
+            },500);
+            
+        }
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+        function jiashan2shanghai() {
+            setTimeout(function() {
+                jiashanMarker.closeInfoWindow(jiashaninfoWindow);
+                map.centerAndZoom(shanghaiPoint, 9);
+                var place = {
+                    start: jiashanPoint,
+                    end: shanghaiPoint,
+                    step: 10,
+                    interval: 500
+                }
+                a2b(place, function(point) {
+                    shanghaiPoint = point;
+                    map.centerAndZoom(shanghaiPoint, 16);
+                    map.addOverlay(shanghaiMarker);
+                    shanghaiMarker.openInfoWindow(jiashaninfoWindow);
+                    document.getElementById('imgDemo').onload = function() {
+                        jiashaninfoWindow.redraw(); //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+                    }
+                    popILoveU();
+                });
+            }, 1000);
+        }
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+        function jiashanAction() {
+            map.addOverlay(jiashanMarker);
+            jiashanMarker.openInfoWindow(jiashaninfoWindow);
+            document.getElementById('imgDemo').onload = function() {
+                jiashaninfoWindow.redraw(); //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+            }
+        }
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Birthday maintained by <a href="https://github.com/binchen911">binchen911</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+        var zoomJiashanLevel = 3;
+        var intervalId = setInterval(function() {
+            map.centerAndZoom(jiashanPoint, zoomJiashanLevel++);
+            if (zoomJiashanLevel == 19) {
+                jiashanAction();
+            };
+            if (zoomJiashanLevel == 20) {
+                jiashan2shanghai();
+                clearInterval(intervalId);
+            };
+        }, 500);
+    }
+}
+		</script>
+	</body>
 </html>

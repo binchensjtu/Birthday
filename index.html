@@ -24,32 +24,22 @@
 		<div id="mainDiv">
 			<div id="content">
 				<div id="code">
-					<span class="comments">/**</span><br />
-				<span class="space"/><span class="comments">* We are both Fudan SSers and programmers,</span><br />
-				<span class="space"/><span class="comments">* so I write some code to celebrate our 1st anniversary.</span><br />
-				<span class="space"/><span class="comments">*/</span><br />
-				Boy i = <span class="keyword">new</span> Boy(<span class="string">"hackerzhou"</span>);<br />
-				Girl u = <span class="keyword">new</span> Girl(<span class="string">"MaryNee"</span>);<br />
-				<span class="comments">// Nov 2, 2010, I told you I love you. </span><br />
-				i.love(u);<br />
-				<span class="comments">// Luckily, you accepted and became my girlfriend eversince.</span><br />
-				u.accepted();<br />
-				<span class="comments">// Since then, I miss u every day.</span><br />
-				i.miss(u);<br />
-				<span class="comments">// And take care of u and our love.</span><br />
-				i.takeCareOf(u);<br />
-				<span class="comments">// You say that you won't be so easy to marry me.</span><br />
-				<span class="comments">// So I keep waiting and I have confidence that you will.</span><br />
-				<span class="keyword">boolean</span> isHesitate = <span class="keyword">true</span>;<br />
-				<span class="keyword">while</span> (isHesitate) {<br />
-				<span class="placeholder"/>i.waitFor(u);<br />
-				<span class="placeholder"/><span class="comments">// I think it is an important decision</span><br />
-				<span class="placeholder"/><span class="comments">// and you should think it over.</span><br />
-				<span class="placeholder"/>isHesitate = u.thinkOver();<br />
-				}<br />
-				<span class="comments">// After a romantic wedding, we will live happily ever after.</span><br />
-				i.marry(u);<br />
-				i.liveHappilyWith(u);<br />
+                    <span class="comments">嘉善</span><br />
+                    <span class="placeholder"/>1990年2月26日，可爱的(其实这个形容词是她自诩的)小zz出生在一个风景秀美的江南水乡——嘉善。从小就是个不省事的孩子，打架（虽然从来没实战过，只是在一旁呐喊...），吸烟（只是叼根没有点燃的烟，纯属以为很酷...）。直到高三才幡然醒悟，开始用死记硬背的方法学习，高考很狗屎得考到了同济大学，于是来到了...<br />
+                    <br />
+                    <span class="comments">上海</span><br />
+                    <span class="placeholder"/>进入到上海这个大都市，不爱学习的小zz开始撒开手去玩，英语38分，物理考小抄，整个大学4年不知道进图书馆要刷卡的她非常幸运的没有挂过一门科目，在大学四年级结束前，她很幸运地遇到了一个重要人物...不过他工作去了北京，她工作去了苏州，他们从来都觉得对方只是人生的过客...<br />
+                    <br />
+                    <span class="comments">苏州</span><br />
+                    <span class="placeholder"/>工作的第一年，小zz除了抱怨太忙太累，整天坐着当老板，发大财的梦，偶尔向朋友宣传宣传自己的皮包公司，其实也没做点别的有意义的什么...工作一年之际，小zz厌倦了这样子的生活，不安分的她又开始投简历，希望能来到她一直喜欢的超一线城市....<br />
+                    <br />
+                    <span class="comments">北京</span><br />
+                    <span class="placeholder"/>小zz来到了她喜欢的超一线城市，机缘巧合赖到他的家中，生活习惯上不和，彼此不爽对方某些点，吵架，发生了很多事情，但是她却不知道他已经慢慢喜欢上了她，没有征兆的，没有理由的。莫名奇妙地走在了一起(其实是偷懒不想说这个过程...)。他发现她比想象中的粘人，比想象中的开朗，一切都比想象中的好。虽然从开始到现在并没有多长一段时间，但是他已经感觉到不能没有她，所以他想对她说...<br />
+                    <br />
+                    <br />
+                    <h1 style="text-align:center;color: #7f0055;font-weight:bold;">Happy birthday to you!</h1>
+                    <h1 style="text-align:center;color: #7f0055;font-weight:bold;">I Love you!</h1>
+
 				</div>
 				<div id="loveHeart">
 					<canvas id="garden"></canvas>
@@ -67,7 +57,7 @@
 			</div>
 			<div id="copyright">
 				Inspired by <a href="http://love.hackerzhou.me">FlowerPower</a> project.<br />
-				Copyright © 2014 Benny 2009-2014
+				Copyright © 2014 Benny 2012-2014
 			</div>
 		</div>
         <script type="text/javascript" src="js/music.js"></script>
@@ -106,13 +96,14 @@ if (!document.createElement('canvas').getContext) {
     }, 500);
 
     adjustCodePosition();
-
     if (jQuery.browser.mobile) {
         console.log("is mobile");
+        document.getElementById("code").style.width = "440px";
+        document.getElementById("code").style.height = "400px";
         $("#code").typewriter();
     } else {
         console.log("is not mobile");
-        var i_love_you_s = [{
+        var i_love_you_Europe = [{
             point: "-0.316806,51.562841",
             text: "I Love you"
         }, {
@@ -136,7 +127,8 @@ if (!document.createElement('canvas').getContext) {
         }, {
             point: "37.655215,55.713328",
             text: "Я люблю тебя"
-        }, {
+        }];
+        var i_love_you_Asia = [{
             point: "139.797007,35.729394",
             text: "私はあなたを愛して"
         }, {
@@ -180,33 +172,41 @@ if (!document.createElement('canvas').getContext) {
             text: "我好钟意你"
         }, {
             point: "116.414042,39.908737",
-            text: "我爱你"
+            text: "我爱你！生日快乐！"
         }]
         // 百度地图API功能
         var map = new BMap.Map("code");
         var jiashanPoint = new BMap.Point(120.940155, 30.848783);
         var shanghaiPoint = new BMap.Point(121.507102, 31.288675);
+        var suzhouPoint = new BMap.Point(120.62944,31.306193);
         var beijingPoint = new BMap.Point(116.358301,40.011862);
+
         var jiashanContent =
             "<img style='float:right;margin:2px' id='imgDemo' src='images/jiashan.jpg' width='150' height='94'/>" +
-            "<p style='margin:0;line-height:1.5;font-size:11px;text-indent:2em'>1990年2月26日，可爱的(其实这个形容词是她自诩的)小zz出生在一个风景秀美的江南水乡——嘉善。从小就是个不省事的孩子，打架（虽然从来没实战过，只是在一旁呐喊...），吸烟（只是叼根没有点燃的烟，纯属以为很酷...）。直到高三才幡然醒悟，开始用死记硬背的方法学习，高考很狗屎得考到了同济大学，于是来到了...</p>" +
+            "<p style='margin:0;line-height:1.5;font-size:12px;text-indent:2em'>1990年2月26日，可爱的(其实这个形容词是她自诩的)小zz出生在一个风景秀美的江南水乡——嘉善。从小就是个不省事的孩子，打架（虽然从来没实战过，只是在一旁呐喊...），吸烟（只是叼根没有点燃的烟，纯属以为很酷...）。直到高三才幡然醒悟，开始用死记硬背的方法学习，高考很狗屎得考到了同济大学，于是来到了...</p>" +
             "</div>";
         var shanghaiContent =
-            "<img style='float:right;margin:2px' id='imgDemo' src='images/jiashan.jpg' width='150' height='94'/>" +
-            "<p style='margin:0;line-height:1.5;font-size:11px;text-indent:2em'>进入到上海这个大都市，不爱学习的小zz开始撒开手去玩，英语38分，物理考小抄，整个大学4年不知道进图书馆要刷卡的她非常幸运的没有挂过一门科目，在大学四年级结束前，她很幸运地遇到了一个重要人物...不过他工作去了北京，她工作去了苏州，他们从来都觉得对方只是人生的过客...</p>" +
+            "<img style='float:right;margin:2px' id='imgDemo' src='images/shanghai.jpg' width='134' height='123'/>" +
+            "<p style='margin:0;line-height:1.5;font-size:12px;text-indent:2em'>进入到上海这个大都市，不爱学习的小zz开始撒开手去玩，英语38分，物理考小抄，整个大学4年不知道进图书馆要刷卡的她非常幸运的没有挂过一门科目，在大学四年级结束前，她很幸运地遇到了一个重要人物...不过他工作去了北京，她工作去了苏州，他们从来都觉得对方只是人生的过客...</p>" +
             "</div>";
         var suzhouContent =
-            "<img style='float:right;margin:2px' id='imgDemo' src='images/jiashan.jpg' width='150' height='94'/>" +
-            "<p style='margin:0;line-height:1.5;font-size:11px;text-indent:2em'>工作的第一年，小zz除了抱怨太忙太累，整天坐着当老板，发大财的梦，偶尔向朋友宣传宣传自己的皮包公司，其实也没做点别的有意义的什么...工作一年之际，小zz厌倦了这样子的生活，不安分的她又开始投简历，希望能来到她一直喜欢的超一线城市....</p>" +
+            "<img style='float:right;margin:2px' id='imgDemo' src='images/suzhou.jpg' width='111' height='113'/>" +
+            "<p style='margin:0;line-height:1.5;font-size:12px;text-indent:2em'>工作的第一年，小zz除了抱怨太忙太累，整天坐着当老板，发大财的梦，偶尔向朋友宣传宣传自己的皮包公司，其实也没做点别的有意义的什么...工作一年之际，小zz厌倦了这样子的生活，不安分的她又开始投简历，希望能来到她一直喜欢的超一线城市....</p>" +
             "</div>";
         var beijingContent =
-            "<img style='float:right;margin:2px' id='imgDemo' src='images/jiashan.jpg' width='150' height='94'/>" +
-            "<p style='margin:0;line-height:1.5;font-size:11px;text-indent:2em'></p>" +
+            "<img style='float:right;margin:1px' id='imgDemo' src='images/beijing.jpg' width='150' height='94'/>" +
+            "<p style='margin:0;line-height:1.2;font-size:12px;text-indent:2em'>小zz来到了她喜欢的超一线城市，机缘巧合赖到他的家中，生活习惯上不和，彼此不爽对方某些点，吵架，发生了很多事情，但是她却不知道他已经慢慢喜欢上了她，没有征兆的，没有理由的。莫名奇妙地走在了一起(其实是偷懒不想说这个过程...)。他发现她比想象中的粘人，比想象中的开朗，一切都比想象中的好。虽然从开始到现在并没有多长一段时间，但是他已经感觉到不能没有她，所以他想对她说...</p>" +
             "</div>";
+
         var jiashanMarker = new BMap.Marker(jiashanPoint);
         var shanghaiMarker = new BMap.Marker(shanghaiPoint);
+        var suzhouMarker = new BMap.Marker(suzhouPoint);
         var beijingMarker = new BMap.Marker(beijingPoint);
+
         var jiashaninfoWindow = new BMap.InfoWindow(jiashanContent); // 创建信息窗口对象
+        var shanghaiinfoWindow = new BMap.InfoWindow(shanghaiContent);
+        var suzhouinfoWindow = new BMap.InfoWindow(suzhouContent);
+        var beijinginfoWindow = new BMap.InfoWindow(beijingContent);
 
         var polylineArt = {
             strokeColor: "blue",
@@ -245,22 +245,35 @@ if (!document.createElement('canvas').getContext) {
             }, intervalTime);
         }
 
+
         function popILoveU() {
-            var i = 0;
-            var intervalId = setInterval(function(){
-                if(i==i_love_you_s.length){
-                    clearInterval(intervalId);
-                }else{
-                    var i_love_you = i_love_you_s[i++];
-                var point = i_love_you.point.split(",");
-                var infoWindow = new BMap.InfoWindow("<b>" + i_love_you.text + "</b>"); // 创建信息窗口对象
-                var location = new BMap.Point(point[0], point[1]);
-                map.centerAndZoom(location, 5);
-                map.openInfoWindow(infoWindow, location); //开启信息窗口
-                }
-                
-            },500);
-            
+             setTimeout(function() {
+                beijingMarker.closeInfoWindow(beijinginfoWindow);
+                var center = new BMap.Point(28.863606,48.247586);
+                map.centerAndZoom(center, 5);
+                var i = 0;
+                var j = 0;
+                var intervalId = setInterval(function(){
+                    if(i==i_love_you_Europe.length){
+                        if(j == i_love_you_Asia.length){
+                            clearInterval(intervalId);
+                            
+                        }else{
+                            var i_love_you = i_love_you_Asia[j++];
+                            var point = i_love_you.point.split(",");
+                            var infoWindow = new BMap.InfoWindow("<b>" + i_love_you.text + "</b>"); 
+                            var location = new BMap.Point(point[0], point[1]);
+                            map.openInfoWindow(infoWindow, location); //开启信息窗口
+                        }
+                    }else{
+                        var i_love_you = i_love_you_Europe[i++];
+                        var point = i_love_you.point.split(",");
+                        var infoWindow = new BMap.InfoWindow("<b>" + i_love_you.text + "</b>"); 
+                        var location = new BMap.Point(point[0], point[1]);
+                        map.openInfoWindow(infoWindow, location); //开启信息窗口
+                    }
+                    },1800);
+             },18000);
         }
 
         function jiashan2shanghai(callback) {
@@ -270,20 +283,20 @@ if (!document.createElement('canvas').getContext) {
                 var place = {
                     start: jiashanPoint,
                     end: shanghaiPoint,
-                    step: 30,
+                    step: 20,
                     interval: 300
                 };
                 a2b(place, function(point) {
                     shanghaiPoint = point;
                     map.centerAndZoom(shanghaiPoint, 16);
                     map.addOverlay(shanghaiMarker);
-                    shanghaiMarker.openInfoWindow(jiashaninfoWindow);
+                    shanghaiMarker.openInfoWindow(shanghaiinfoWindow);
                     document.getElementById('imgDemo').onload = function() {
-                        jiashaninfoWindow.redraw(); //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+                        shanghaiinfoWindow.redraw(); //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
                     }
                     callback();
                 });
-            }, 1000);
+            }, 18000);
         }
 
         function jiashanAction() {
@@ -294,13 +307,37 @@ if (!document.createElement('canvas').getContext) {
             }
         }
 
-        function shanghai2beijing(callback){
+        function shanghai2suzhou(){
             setTimeout(function(){
-                shanghaiMarker.closeInfoWindow(jiashaninfoWindow);
-                var centerPoint = new BMap.Point((beijingPoint.lng+shanghaiPoint.lng)/2,(beijingPoint.lat+shanghaiPoint.lat)/2 );
-                map.centerAndZoom(centerPoint, 6);
+                shanghaiMarker.closeInfoWindow(shanghaiinfoWindow);
+                var centerPoint = new BMap.Point((suzhouPoint.lng+shanghaiPoint.lng)/2,(suzhouPoint.lat+shanghaiPoint.lat)/2 );
+                map.centerAndZoom(centerPoint, 9);
                 var place = {
                     start: shanghaiPoint,
+                    end: suzhouPoint,
+                    step: 10,
+                    interval: 500
+                };
+                a2b(place, function(point) {
+                    suzhouPoint = point;
+                    map.centerAndZoom(suzhouPoint, 18);
+                    map.addOverlay(suzhouMarker);
+                    suzhouMarker.openInfoWindow(suzhouinfoWindow);
+                    document.getElementById('imgDemo').onload = function() {
+                        suzhouinfoWindow.redraw();
+                    }
+                    suzhou2beijing();
+                });
+            },18000);
+        }
+
+        function suzhou2beijing(callback){
+            setTimeout(function(){
+                suzhouMarker.closeInfoWindow(suzhouinfoWindow);
+                var centerPoint = new BMap.Point((beijingPoint.lng+suzhouPoint.lng)/2,(beijingPoint.lat+suzhouPoint.lat)/2 );
+                map.centerAndZoom(centerPoint, 6);
+                var place = {
+                    start: suzhouPoint,
                     end: beijingPoint,
                     step: 10,
                     interval: 500
@@ -309,13 +346,13 @@ if (!document.createElement('canvas').getContext) {
                     beijingPoint = point;
                     map.centerAndZoom(beijingPoint, 18);
                     map.addOverlay(beijingMarker);
-                    beijingMarker.openInfoWindow(jiashaninfoWindow);
+                    beijingMarker.openInfoWindow(beijinginfoWindow);
                     document.getElementById('imgDemo').onload = function() {
-                        jiashaninfoWindow.redraw();
+                        beijinginfoWindow.redraw();
                     }
-                    // popILoveU();
+                    popILoveU();
                 });
-            },2000);
+            },18000);
         }
 
         var zoomJiashanLevel = 3;
@@ -325,10 +362,11 @@ if (!document.createElement('canvas').getContext) {
                 jiashanAction();
             };
             if (zoomJiashanLevel == 20) {
-                jiashan2shanghai(shanghai2beijing);
+                jiashan2shanghai(shanghai2suzhou);
+                
                 clearInterval(intervalId);
             };
-        }, 500);
+        }, 1500);
     }
 }
 		</script>

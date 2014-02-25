@@ -17,7 +17,7 @@
 		<script type="text/javascript" src="js/detectmobilebrowser.js"></script>
 	</head>
 	<body>
-		<audio autoplay="autoplay" loop="loop" id="music">
+		<audio autoplay="autoplay" id="music">
 		<source src="music/dadada.ogg" type="audio/ogg" />
 		<source src="music/dadada.mp3" type="audio/mpeg" />
 		</audio>
@@ -70,6 +70,7 @@
 				Copyright © 2014 Benny 2009-2014
 			</div>
 		</div>
+        <script type="text/javascript" src="js/music.js"></script>
 		<script type="text/javascript">
 var offsetX = $("#loveHeart").width() / 2;
 var offsetY = $("#loveHeart").height() / 2 - 55;
@@ -187,8 +188,20 @@ if (!document.createElement('canvas').getContext) {
         var shanghaiPoint = new BMap.Point(121.507102, 31.288675);
         var beijingPoint = new BMap.Point(116.358301,40.011862);
         var jiashanContent =
-            "<img style='float:right;margin:2px' id='imgDemo' src='images/tiananmen.jpg' width='139' height='104' title='天安门'/>" +
-            "<p style='margin:0;line-height:1.5;font-size:11px;text-indent:2em'>天安门坐落在中国北京市中心,故宫的南侧,与天安门广场隔长安街相望,是清朝皇城的大门...</p>" +
+            "<img style='float:right;margin:2px' id='imgDemo' src='images/jiashan.jpg' width='150' height='94'/>" +
+            "<p style='margin:0;line-height:1.5;font-size:11px;text-indent:2em'>1990年2月26日，可爱的(其实这个形容词是她自诩的)小zz出生在一个风景秀美的江南水乡——嘉善。从小就是个不省事的孩子，打架（虽然从来没实战过，只是在一旁呐喊...），吸烟（只是叼根没有点燃的烟，纯属以为很酷...）。直到高三才幡然醒悟，开始用死记硬背的方法学习，高考很狗屎得考到了同济大学，于是来到了...</p>" +
+            "</div>";
+        var shanghaiContent =
+            "<img style='float:right;margin:2px' id='imgDemo' src='images/jiashan.jpg' width='150' height='94'/>" +
+            "<p style='margin:0;line-height:1.5;font-size:11px;text-indent:2em'>进入到上海这个大都市，不爱学习的小zz开始撒开手去玩，英语38分，物理考小抄，整个大学4年不知道进图书馆要刷卡的她非常幸运的没有挂过一门科目，在大学四年级结束前，她很幸运地遇到了一个重要人物...不过他工作去了北京，她工作去了苏州，他们从来都觉得对方只是人生的过客...</p>" +
+            "</div>";
+        var suzhouContent =
+            "<img style='float:right;margin:2px' id='imgDemo' src='images/jiashan.jpg' width='150' height='94'/>" +
+            "<p style='margin:0;line-height:1.5;font-size:11px;text-indent:2em'>工作的第一年，小zz除了抱怨太忙太累，整天坐着当老板，发大财的梦，偶尔向朋友宣传宣传自己的皮包公司，其实也没做点别的有意义的什么...工作一年之际，小zz厌倦了这样子的生活，不安分的她又开始投简历，希望能来到她一直喜欢的超一线城市....</p>" +
+            "</div>";
+        var beijingContent =
+            "<img style='float:right;margin:2px' id='imgDemo' src='images/jiashan.jpg' width='150' height='94'/>" +
+            "<p style='margin:0;line-height:1.5;font-size:11px;text-indent:2em'></p>" +
             "</div>";
         var jiashanMarker = new BMap.Marker(jiashanPoint);
         var shanghaiMarker = new BMap.Marker(shanghaiPoint);

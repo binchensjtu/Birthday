@@ -18,8 +18,8 @@
 	</head>
 	<body>
 		<audio autoplay="autoplay" id="music">
-		<source src="music/dadada.ogg" type="audio/ogg" />
-		<source src="music/dadada.mp3" type="audio/mpeg" />
+		<source src="music/keainvren.ogg" type="audio/ogg" />
+		<source src="music/keainvren.mp3" type="audio/mpeg" />
 		</audio>
 		<div id="mainDiv">
 			<div id="content">
@@ -148,7 +148,7 @@ if (!document.createElement('canvas').getContext) {
             text: "俺挺希罕嫩滴"
         }, {
             point: "120.157815,30.285259",
-            text: "我毛喜欢你的来"
+            text: "我毛欢喜你的来"
         }, {
             point: "121.560609,29.881251",
             text: "阿拉呆个欢喜侬"
@@ -178,7 +178,7 @@ if (!document.createElement('canvas').getContext) {
         var map = new BMap.Map("code");
         var jiashanPoint = new BMap.Point(120.940155, 30.848783);
         var shanghaiPoint = new BMap.Point(121.507102, 31.288675);
-        var suzhouPoint = new BMap.Point(120.62944,31.306193);
+        var suzhouPoint = new BMap.Point(120.640832,31.299513);
         var beijingPoint = new BMap.Point(116.358301,40.011862);
 
         var jiashanContent =
@@ -273,7 +273,7 @@ if (!document.createElement('canvas').getContext) {
                         map.openInfoWindow(infoWindow, location); //开启信息窗口
                     }
                     },1800);
-             },18000);
+             },10000);
         }
 
         function jiashan2shanghai(callback) {
@@ -296,7 +296,7 @@ if (!document.createElement('canvas').getContext) {
                     }
                     callback();
                 });
-            }, 18000);
+            }, 10000);
         }
 
         function jiashanAction() {
@@ -328,7 +328,7 @@ if (!document.createElement('canvas').getContext) {
                     }
                     suzhou2beijing();
                 });
-            },18000);
+            },10000);
         }
 
         function suzhou2beijing(callback){
@@ -352,7 +352,7 @@ if (!document.createElement('canvas').getContext) {
                     }
                     popILoveU();
                 });
-            },18000);
+            },10000);
         }
 
         var zoomJiashanLevel = 3;

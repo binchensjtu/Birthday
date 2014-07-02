@@ -1,7 +1,7 @@
 # Development Guide #
 ---------------------------------------
 
-[TOC]
+{:toc}
 
 
 ## SetUp Environment ##
